@@ -10,7 +10,27 @@ const registerEmployee= async(req,res)=>{
        const about= req.body.about
        const place= req.body.place
        console.log(desigination+'=='+dob);
-       const employeData= await employee.find()
+       
+       const newemployee=new employee({
+        email:email,
+        name:name,
+        dob:dob,
+        desigination:desigination,
+        phone:phone,
+        place:place,
+        apout:about
+       })
+
+       const res=await newemployee.save()
+       if(res){
+        res.status(200).send({
+            message: "register success",
+        });
+       }else{
+        res.status(400).send({
+            message: "somthing wrong..!",
+        });
+       }
       
     } catch (err) {
         console.log(err.error.message);

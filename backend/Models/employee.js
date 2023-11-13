@@ -41,6 +41,14 @@ const employee= new mongoose.Schema({
     isOff:{
         type:Boolean,
         default:false
+    },
+    isverified:{
+        type:Boolean,
+        default:false
+    },
+    isblock:{
+        type:Boolean,
+        default:false
     }
 
 })
