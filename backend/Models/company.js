@@ -11,7 +11,7 @@ const newcompanySchema = new mongoose.Schema({
     },
     image: {
         type: String,
-        required: true
+        default:''
     },
     about: {
         type: String,
@@ -23,11 +23,11 @@ const newcompanySchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        default: 'bcompany@gmail.com'
+        default:'bcompany@gmail.com'
     },
     password: {
         type: String,
-        default: 'bcompany@123'
+        default:'bcompany@123'
     },
     isOff: {
         type: Boolean,
@@ -35,6 +35,6 @@ const newcompanySchema = new mongoose.Schema({
     }
 });
 
-const company = mongoose.model('companyDetails', newcompanySchema);
+const company = mongoose.model('companyDetails',newcompanySchema);
 
 module.exports = company;

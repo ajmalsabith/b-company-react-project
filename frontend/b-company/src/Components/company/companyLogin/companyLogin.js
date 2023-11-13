@@ -2,15 +2,18 @@ import React,{useState} from "react";
 import "./companyLogin.css";
 import axios from "axios";
 import toast from "react-hot-toast";
-
+import { useNavigate } from 'react-router-dom';
 
 function CompanyLogin() {
+
+  const navigate= useNavigate()
+
 
   const [state, setState] = useState({
     email: '',
     password: ''
   });
-  const sty={color:'dark',fontwaight:'bold'}
+ const sty={color:'dark',fontwaight:'bold'}
  const submit=(e)=>{
     e.preventDefault();
     const {email,password}=state
@@ -25,15 +28,14 @@ function CompanyLogin() {
     password:password
    }
 
-    const responce=axios.post('http://localhost:5000/companylogin',userdata).then((res)=>{
-      if(responce.status===400){
+    axios.post('http://localhost:5000/companylogin',userdata).then((res)=>{
 
-        toast.error(responce.error.message)
-      }else{
-         toast.success('success register')
-      }
+         toast.success(res.data.message)
+         navigate('/register')
+         
     }).catch((err)=>{
-      toast.error(err.error)
+      console.log(err.response.data.message);
+      toast.error(err.response.data.message)
     })
 
 
