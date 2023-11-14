@@ -40,6 +40,7 @@ function Employeelogin() {
     axios.post('http://localhost:5000/employeregister',emplyee).then((res)=>{
 
          toast.success(res.data.message)
+         toast.success(res.data.otp)
          navigate('/otp')
          
     }).catch((err)=>{
@@ -57,6 +58,7 @@ function Employeelogin() {
   setState({...state,[name]:value})
   
   }
+  
 
   return (
     <div>
