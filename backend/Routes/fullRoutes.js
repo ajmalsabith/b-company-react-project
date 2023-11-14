@@ -8,5 +8,7 @@ const employeeController=require('../Controllers/employeeController')
 
 routes.post('/companylogin',companyController.logincompany)
 
+routes.post('/employeregister',employeeController.registerEmployee)
+
 
 module.exports = routes

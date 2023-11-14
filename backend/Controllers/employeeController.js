@@ -18,11 +18,11 @@ const registerEmployee= async(req,res)=>{
         desigination:desigination,
         phone:phone,
         place:place,
-        apout:about
+        about:about
        })
 
-       const res=await newemployee.save()
-       if(res){
+       const response=await newemployee.save()
+       if(response){
         res.status(200).send({
             message: "register success",
         });
@@ -33,7 +33,7 @@ const registerEmployee= async(req,res)=>{
        }
       
     } catch (err) {
-        console.log(err.error.message);
+        console.log(err.message);
     }
 }
 

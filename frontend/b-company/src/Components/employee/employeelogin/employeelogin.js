@@ -1,8 +1,13 @@
 import React,{useState} from "react";
 import toast from "react-hot-toast";
 import "./employeelogin.css";
+import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+
 
 function Employeelogin() {
+
+  const navigate= useNavigate()
   const [state, setState] = useState({
     name: "",
     dob: Date,
@@ -13,13 +18,13 @@ function Employeelogin() {
     email:''
   });
   const sty={color:'dark',fontwaight:'bold'}
-
  function submit(e){
     e.preventDefault()
     const {name,dob,desigination,about,phone,place,email} = state
-
+     console.log(desigination+'==is desigi');
     if(!name || !dob|| !desigination||!about|| !phone||!place || !email){
       toast.error('please fill all fields..!')
+      return
     }
 
     const emplyee={
@@ -32,13 +37,12 @@ function Employeelogin() {
       email:email
     }
 
-    axios.post('http://localhost:5000/employelogin',emplyee).then((res)=>{
+    axios.post('http://localhost:5000/employeregister',emplyee).then((res)=>{
 
          toast.success(res.data.message)
          navigate('/otp')
          
     }).catch((err)=>{
-      console.log(err.response.data.message);
       toast.error(err.response.data.message)
     })
 
@@ -84,7 +88,7 @@ function Employeelogin() {
             </div>
             <label for="desigin">Your desigination</label>
             <div>
-            <select className="mt-1" id="desigin" name="jobtype" onChange={handlechange} >
+            <select className="mt-1" id="desigin" name="desigination" onChange={handlechange} >
               <option value="HR">HR</option>
               <option value="ProjectManager">Project Manager</option>
               <option value="CTO">CTO</option>
