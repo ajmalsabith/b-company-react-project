@@ -1,0 +1,39 @@
+/* navbar.css */
+
+.navbar {
+    background-color: rgb(229, 229, 229);
+    padding: 10px;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+    color: #333;
+    /* Add more styling as needed */
+  }
+  
+  .navbar-nav .nav-link {
+    font-size: 1rem;
+    color: #555;
+    margin-right: 15px;
+    /* Add more styling as needed */
+  }
+  
+
+
+.navbar-toggler-icon {
+    color: #007bff !important;
+    background-color: transparent !important;
+    border: none !important;
+  }
+  
+  
+  
+  /* Add media queries for responsive design if necessary */
+  @media (max-width: 768px) {
+    .navbar-nav .nav-link {
+      margin-right: 0;
+      margin-bottom: 10px;
+      /* Add more styling as needed for smaller screens */
+    }
+  }
+  

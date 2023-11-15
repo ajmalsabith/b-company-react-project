@@ -22,9 +22,19 @@ function Employeelogin() {
     e.preventDefault()
     const {name,dob,desigination,about,phone,place,email} = state
      console.log(desigination+'==is desigi');
+    
+     function validatePhoneNumber(phoneNumber) {
+      var phoneRegex = /^\d{10}$/; 
+      return phoneRegex.test(phoneNumber);
+    }
+    
     if(!name || !dob|| !desigination||!about|| !phone||!place || !email){
       toast.error('please fill all fields..!')
       return
+    }
+  
+    if(!validatePhoneNumber(phone)) {
+      return toast.error('Invalid phone number')
     }
 
     const emplyee={
@@ -62,7 +72,7 @@ function Employeelogin() {
 
   return (
     <div>
-      <div className="container">
+      <div className="container containers">
         <div className="formborder">
           <h1 style={sty}>Fill Form</h1>
           <form onSubmit={submit}>
@@ -106,7 +116,7 @@ function Employeelogin() {
               onChange={handlechange}
             />
             <input
-              type="number"
+              type="text"
               name="phone"
               placeholder="enter your phone number"
               onChange={handlechange}
@@ -117,7 +127,7 @@ function Employeelogin() {
             placeholder="enter your email"
             onChange={handlechange}
           />
-            <button className="btn btn-success">Next</button>
+            <button className="btn btn-dark">Next</button>
           </form>
         </div>
       </div>

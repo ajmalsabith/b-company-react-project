@@ -15,9 +15,8 @@ function App() {
     position="top-center"
     reverseOrder={false}
   />
-  
-    
     <BrowserRouter>
+       
        <Routes>
        
        <Route path="" Component={CompanyLogin} />
