@@ -37,13 +37,23 @@ const verificationSend= async(phone)=>{
 const registerEmployee= async(req,res)=>{
     try {
        const email= req.body.email
+       console.log(email);
        const name= req.body.name
        const dob= req.body.dob
        const desigination= req.body.desigination
        const phone= req.body.phone
        const about= req.body.about
        const place= req.body.place
-       console.log(desigination+'=='+dob);
+       const emailexist= await employee.findOne({email:email})
+       console.log(emailexist);
+       console.log(emailexist);
+       console.log(email+"is emial");
+
+       if(emailexist){
+       return res.status(400).send({
+            message: "this email allready exist..!",
+        });
+       }
        
        const newemployee=new employee({
         email:email,

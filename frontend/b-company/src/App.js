@@ -5,6 +5,8 @@ import Employeelogin from "./Components/employee/employeelogin/employeelogin";
 import  { Toaster } from 'react-hot-toast'
 import Otp from "./Components/employee/otp/otp";
 import Home from "./Components/company/home/home";
+import AdminLogin from "./Components/admin/login/login";
+import AdiminHome from "./Components/admin/home/home";
 
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
        <Route path="/register" Component={Employeelogin} />
        <Route path="/otp" Component={Otp} />
        <Route path="/home" Component={Home} />
+       <Route path="/adminlogin" Component={AdminLogin} />
+       <Route path="/adminhome" Component={AdiminHome} />
        <Route path="*" Component={CompanyLogin} />
 
        </Routes>   
