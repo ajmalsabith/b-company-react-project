@@ -33,7 +33,7 @@ function Home() {
                 </h1>
                 <p>
                   <AiFillTag className="AiFillTag" />
-                  b-company Software pwt ltd
+                  b-company Software pvt ltd
                 </p>
                 <p>
                   <FaMapMarkerAlt className="FaMapMarkerAlt" />

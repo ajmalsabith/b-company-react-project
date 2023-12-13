@@ -30,6 +30,76 @@ const adminLogin= async(req,res)=>{
     }
 }
 
+const getempdata=async (req,res)=>{
+    try{
+
+        console.log('is here');
+        const userdata=await employee.find({})
+        if(userdata){
+           return res.status(200).send({
+                userdata:userdata
+            })
+        }else{
+           return res.status(400).send({
+                message:'somthing wrong..'
+            })
+        }
+    }catch(err){
+        console.log(err.message);
+    }
+}
+
+const actions= async(req,res)=>{
+    try {
+      const id=  req.body.id
+        const isemp= await employee.findOne({_id:id})
+        
+        if (isemp) {
+            if(isemp.isblock){
+                await employee.updateOne({_id:id},{$set:{isblock:false}})
+                return res.status(200).send({
+                 message:'emp-unblocked'
+                })
+             }else{
+                await employee.updateOne({_id:id},{$set:{isblock:true}})
+                return res.status(200).send({
+                    message:'emp-blocked'
+               })
+             }
+        }else{
+            return res.status(400).send({
+                message:'somthing wrong..'
+            })
+        }
+       
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+const deleteemp= async(req,res)=>{
+    try {
+
+      const id=  req.body.id
+        const isemp= await employee.deleteOne({_id:id})
+        
+        if (isemp) {
+                return res.status(200).send({
+                 message:'emp-deleted'
+                })
+        }else{
+            return res.status(400).send({
+                message:'somthing wrong..'
+            })
+        }
+       
+    } catch (error) {
+        console.log(error.message);
+    }
+}
 module.exports={
-    adminLogin
+    adminLogin,
+    getempdata,
+    actions,
+    deleteemp
 }

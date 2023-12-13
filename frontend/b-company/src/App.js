@@ -7,6 +7,7 @@ import Otp from "./Components/employee/otp/otp";
 import Home from "./Components/company/home/home";
 import AdminLogin from "./Components/admin/login/login";
 import AdiminHome from "./Components/admin/home/home";
+import Empmanage from "./Components/admin/employeemanage/empmanage";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
        <Route path="/home" Component={Home} />
        <Route path="/adminlogin" Component={AdminLogin} />
        <Route path="/adminhome" Component={AdiminHome} />
+       <Route path="/adminUserManage" Component={Empmanage} />
        <Route path="*" Component={CompanyLogin} />
 
        </Routes>   

@@ -13,6 +13,7 @@ import { useNavigate } from 'react-router-dom';
       name: '',
       email: ''
     });
+    
    const sty={color:'dark',fontwaight:'bold'}
    const submit=(e)=>{
       e.preventDefault();

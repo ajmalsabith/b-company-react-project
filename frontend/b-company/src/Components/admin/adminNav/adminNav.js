@@ -7,7 +7,7 @@ function AdminNavbar() {
     <div>
       <nav className="navbar navbarrr navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">
+          <a className="navbar-brand" href="/adminhome">
             <img
               src="https://cdn-icons-png.flaticon.com/512/3891/3891613.png"
               alt="Company Logo"
@@ -26,25 +26,22 @@ function AdminNavbar() {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon">X</span>
           </button>
 
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <a className="nav-link active" aria-current="page" href="/home">
+            <a className="nav-link navitems active" href="/adminhome">
               Dashboard
             </a>
-            <a className="nav-link" href="/features">
+            <a className="nav-link navitems"  href="/adminprojectManage">
               projectsMange
             </a>
-            <a className="nav-link" href="/projects">
+            <a className="nav-link navitems" href="/adminUserManage">
               EmployeeManage
             </a>
-            <a className="nav-link" href="/leave">
+            <a className="nav-link navitems" href="/leave">
               LeaveApp
-            </a>
-            <a className="nav-link ml-auto" href="/profile">
-              Profile
             </a>
           </div>
         

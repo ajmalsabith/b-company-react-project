@@ -4,7 +4,9 @@ import AdminNavbar from '../adminNav/adminNav'
   return (
     <div>
     <AdminNavbar />
-<h1 >is admin home</h1>
+    <div className='container'>
+      
+    </div>
     </div>
   )
 }   
