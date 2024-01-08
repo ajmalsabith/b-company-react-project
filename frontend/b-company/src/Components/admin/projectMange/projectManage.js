@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import "./projectManage.css";
 import AdminNavbar from '../adminNav/adminNav';
-import { set } from 'mongoose';
+import axios from "axios";
+import toast from "react-hot-toast";
+import { useNavigate } from 'react-router-dom';
+
 
  function ProjectManage() {
 
@@ -9,19 +12,32 @@ import { set } from 'mongoose';
 
         pname:'',
         pcon:'',
-        psdate:'',
+        psdate:Date,
         pcname:'',
-        pdate:'',
+        pedate:Date,
 
 
     })
     function handlechange(e){
         const {name,value} = e.target
-
+        console.log(name,value);
          setState({...state,[name]:value})
     }
-    function submit(){
-        
+    function submit(e){
+       e.preventDefault();
+        const {pname,pcon,psdate,pcname,pedate} = state
+        console.log(pname,psdate,pcname,pcon,pedate)
+        if(!pname|| !pcon ||!psdate||!pcname||!pedate){
+          return toast.error('please fill the form')
+        }
+
+        axios.post('http://localhost:5000/admin/addProject',state).then((res)=>{
+          toast.success('project adding success')
+
+        }).catch((err)=>{
+        console.log(err.response.data.message);
+        toast.error(err.response.data.message)
+        })
     }
   return (
     <div>
@@ -32,7 +48,7 @@ import { set } from 'mongoose';
       <div className='j-class'>
       <form onSubmit={submit}>
           <label > projectName</label>
-          <input type='text' onChange={handlechange} className='input-p' name='p-name' />
+          <input type='text' onChange={handlechange} className='input-p' name='pname' />
           <label >content</label>
           <input type='text' className='input-p' onChange={handlechange} name='pcon' />
           <label > startdate</label>

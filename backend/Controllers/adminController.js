@@ -1,4 +1,5 @@
 const employee= require('../Models/employee')
+const project= require('../Models/project')
 
 
 const adminLogin= async(req,res)=>{
@@ -97,9 +98,40 @@ const deleteemp= async(req,res)=>{
         console.log(error.message);
     }
 }
+
+const addProject=async (req,res)=>{
+
+    try {
+
+        const {pname,pcon,pedate,psdate,pcname}= req.body
+        console.log(pcname);
+        const newproject= new project({
+            pname:pname,
+            pcname:pcname,
+            pcon:pcon,
+            psdate:psdate,
+            pedate:pedate
+        })
+        const result= await newproject.save()
+
+        if(result){
+            return res.status(200).send({
+                message:'success'
+             })
+        }else{
+            return res.status(400).send({
+                message:'somthing wrong..'
+            })
+        }
+    } catch (error) {
+        console.log(error.message);
+    }
+
+}
 module.exports={
     adminLogin,
     getempdata,
     actions,
-    deleteemp
+    deleteemp,
+    addProject
 }
