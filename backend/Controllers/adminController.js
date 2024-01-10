@@ -128,10 +128,29 @@ const addProject=async (req,res)=>{
     }
 
 }
+
+const prjectget= async(req,res)=>{
+    try {
+        const projectdata= await project.find({})
+        if(projectdata){
+            res.status(200).send({
+                projectdata:projectdata
+            })
+        }else{
+            res.status(400).send({
+                message:'somthing wrong...!'
+            })
+        }
+    } catch (error) {
+        console.log(error.message);
+    }
+}
 module.exports={
     adminLogin,
     getempdata,
     actions,
     deleteemp,
-    addProject
+    addProject,
+    prjectget
+    
 }

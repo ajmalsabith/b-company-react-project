@@ -9,6 +9,7 @@ import AdminLogin from "./Components/admin/login/login";
 import AdiminHome from "./Components/admin/home/home";
 import Empmanage from "./Components/admin/employeemanage/empmanage";
 import ProjectManage from "./Components/admin/projectMange/projectManage";
+import ProjectList from "./Components/admin/projectList/projectList";
 
 
 function App() {
@@ -31,7 +32,8 @@ function App() {
        <Route path="/adminlogin" Component={AdminLogin} />
        <Route path="/adminhome" Component={AdiminHome} />
        <Route path="/adminUserManage" Component={Empmanage} />
-       <Route path="/adminProjectManage" Component={ProjectManage} />
+       <Route path="/adminProjectadd" Component={ProjectManage} />
+       <Route path="/projectList" Component={ProjectList} />
        <Route path="*" Component={CompanyLogin} />
 
        </Routes>   

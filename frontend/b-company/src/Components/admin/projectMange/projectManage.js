@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 
  function ProjectManage() {
+  const navigate= useNavigate()
 
     const [state,setState] =useState({
 
@@ -33,6 +34,7 @@ import { useNavigate } from 'react-router-dom';
 
         axios.post('http://localhost:5000/admin/addProject',state).then((res)=>{
           toast.success('project adding success')
+          navigate('/projectList')
 
         }).catch((err)=>{
         console.log(err.response.data.message);

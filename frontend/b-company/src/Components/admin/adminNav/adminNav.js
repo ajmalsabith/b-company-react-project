@@ -34,7 +34,7 @@ function AdminNavbar() {
             <a className="nav-link navitems active" href="/adminhome">
               Dashboard
             </a>
-            <a className="nav-link navitems"  href="/adminprojectManage">
+            <a className="nav-link navitems"  href="/projectList">
               projectsMange
             </a>
             <a className="nav-link navitems" href="/adminUserManage">

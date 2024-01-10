@@ -7,6 +7,7 @@ const adminRoutes=express()
 
 adminRoutes.post('/login',admincontroller.adminLogin)
 adminRoutes.get('/emp-data',admincontroller.getempdata)
+adminRoutes.get('/project-data',admincontroller.prjectget)
 adminRoutes.post('/emp-action',admincontroller.actions)
 adminRoutes.post('/emp-delete',admincontroller.deleteemp)
 adminRoutes.post('/addProject',admincontroller.addProject)
